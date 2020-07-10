@@ -2,8 +2,21 @@
 name = "casbin-proto"
 version = "0.1.0"
 authors = ["Chojan Shang <psiace@outlook.com>"]
+description = "The protobuf structs used by Casbin-Raft."
+repository = "https://github.com/psiace/casbin-proto"
+license = "Apache-2.0"
 edition = "2018"
+build = "build.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[build-dependencies]
+tonic-build       = "^0.2"
+
 [dependencies]
+tonic        = "^0.2"
+bytes        = "^0.5"
+prost        = "^0.6"
+prost-types  = "^0.6"
+prost-derive = "^0.6"
+raft         = { git = "https://github.com/tikv/raft-rs", default-features = false, features = ["prost-codec"] }
